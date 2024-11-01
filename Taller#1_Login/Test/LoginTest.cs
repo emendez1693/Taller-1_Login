@@ -8,8 +8,9 @@ namespace Taller_1_Login.Test
     {
         public IWebDriver driver = new ChromeDriver(); //se necesita selenium para interacturar con el navegador o con la apicación.
         public LoginPage loginPage;
+
+
         [SetUp]
-        
         public void IniciarNavegador()
         {
 
@@ -35,20 +36,18 @@ namespace Taller_1_Login.Test
         {
 
             loginPage.IngresarCredenciales();
-
-
         }
         [Test]
         public void IngresoIncorrecto()
         {
-            //loginPage.IngresarCredenciales();
+            loginPage.IngresarCredenciales();
 
-            driver.FindElement(By.Id("username")).SendKeys("emendez");
-            Thread.Sleep(500);
-            driver.FindElement(By.Id("password")).SendKeys("SuperSecretPassword!");
-            Thread.Sleep(500);
-            driver.FindElement(By.CssSelector("#login button")).Click();
-            Thread.Sleep(500);
+            //driver.FindElement(By.Id("username")).SendKeys("emendez");
+            //Thread.Sleep(500);
+            //driver.FindElement(By.Id("password")).SendKeys("SuperSecretPassword!");
+            //Thread.Sleep(500);
+            //driver.FindElement(By.CssSelector("#login button")).Click();
+            //Thread.Sleep(500);
 
 
         }
