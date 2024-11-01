@@ -20,7 +20,7 @@ namespace Taller_1_Login.Test
         }
 
 
-        [Test]
+        
         
         [TearDown]
         public void CerrarNavegador()
@@ -30,6 +30,7 @@ namespace Taller_1_Login.Test
             driver.Quit();
 
         }
+        [Test]
         public void IngresoCorrecto()
         {
 
