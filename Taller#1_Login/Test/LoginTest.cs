@@ -6,7 +6,7 @@ namespace Taller_1_Login.Test
 {
     public class Tests
     {
-        public IWebDriver driver = new ChromeDriver(); //se necesita selenium para interacturar con el navegador o con la apicación.
+        public IWebDriver driver; //se necesita selenium para interacturar con el navegador o con la apicación.
         public LoginPage loginPage;
 
 
@@ -15,6 +15,7 @@ namespace Taller_1_Login.Test
         {
 
             //tiene todos los componentes de selenium
+            driver = new ChromeDriver();
             driver.Manage().Window.Maximize();      //buena práctica pruebas e2e navegador maximizado
             driver.Navigate().GoToUrl("https://the-internet.herokuapp.com/login"); //metotodos lleban paréntesis
             loginPage = new LoginPage(driver);
@@ -31,25 +32,27 @@ namespace Taller_1_Login.Test
             driver.Quit();
 
         }
+        [Category ("Regresión)")]
+        [Order(1)]// Propiedad para ordenar las pruebas
+        [TestCase ("tomsmith", "SuperSecretPassword!")] // Definición de parámetross
+        [TestCase("emendez", "SuperSecretPassword!")]
+        [TestCase("emendez", "pass!")]
         [Test]
-        public void IngresoCorrecto()
+        public void IngresoCorrecto(String user, String pass)
         {
 
-            loginPage.IngresarCredenciales();
+            loginPage.IngresarCredenciales(user,pass);
         }
+        [Ignore("Prueba")]
+        [TestCase("emendez", "SuperSecretPassword!")]
+        [TestCase("emendez", "pass!")]
+        [Order(2)]
         [Test]
-        public void IngresoIncorrecto()
+        public void IngresoIncorrecto(String user, String pass)
         {
-            loginPage.IngresarCredenciales();
 
-            //driver.FindElement(By.Id("username")).SendKeys("emendez");
-            //Thread.Sleep(500);
-            //driver.FindElement(By.Id("password")).SendKeys("SuperSecretPassword!");
-            //Thread.Sleep(500);
-            //driver.FindElement(By.CssSelector("#login button")).Click();
-            //Thread.Sleep(500);
-
-
+            loginPage.IngresarCredenciales(user, pass);
         }
+
     }
 }

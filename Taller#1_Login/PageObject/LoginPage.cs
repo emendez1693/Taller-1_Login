@@ -25,12 +25,12 @@ namespace Taller_1_Login.PageObject
         public IWebElement password => _driver.FindElement(_txtPassword);
         public IWebElement btnlogin => _driver.FindElement(_btnLogin);
 
-        public void IngresarCredenciales() 
+        public void IngresarCredenciales( String user,String pass) 
         {
             //Localizadores: identifiación los elementos del DOM 
             //selenium tiene un orden de prioridad, el ID es el primero ya que es único 
-            username.SendKeys("tomsmith");
-            password.SendKeys("SuperSecretPassword!");
+            username.SendKeys(user);
+            password.SendKeys(pass);
             btnlogin.Click();   
         
         }
