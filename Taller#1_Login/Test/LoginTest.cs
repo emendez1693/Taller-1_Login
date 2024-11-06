@@ -4,6 +4,7 @@ using Taller_1_Login.PageObject;
 
 namespace Taller_1_Login.Test
 {
+    //[TestFixture("emendez", "SuperSecretPassword!")] variable global para pasar los parámetros para todos los test
     public class Tests
     {
         public IWebDriver driver; //se necesita selenium para interacturar con el navegador o con la apicación.
@@ -20,9 +21,6 @@ namespace Taller_1_Login.Test
             driver.Navigate().GoToUrl("https://the-internet.herokuapp.com/login"); //metotodos lleban paréntesis
             loginPage = new LoginPage(driver);
         }
-
-
-        
         
         [TearDown]
         public void CerrarNavegador()
@@ -43,16 +41,8 @@ namespace Taller_1_Login.Test
 
             loginPage.IngresarCredenciales(user,pass);
         }
-        [Ignore("Prueba")]
-        [TestCase("emendez", "SuperSecretPassword!")]
-        [TestCase("emendez", "pass!")]
-        [Order(2)]
-        [Test]
-        public void IngresoIncorrecto(String user, String pass)
-        {
 
-            loginPage.IngresarCredenciales(user, pass);
-        }
+        
 
     }
 }
